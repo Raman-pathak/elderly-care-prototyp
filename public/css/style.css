@@ -1,0 +1,27 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-image:url("https://media.istockphoto.com/id/1347304329/photo/global-medical-teamwork.jpg?s=612x612&w=0&k=20&c=UyaEoGTysE_IPiYZx2vFdOPi6_hZColoxvRTFpg2ImE="); 
+     background-color: #9df9ef;
+     background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size:  100% 100%;
+
+
+} 
+    form {
+      margin-top: 10px;
+    }
+    
+    h2, h3 {
+      margin-top: 20px;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 10px;
+    }

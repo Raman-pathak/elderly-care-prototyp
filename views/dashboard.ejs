@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medication & Health Tracker - Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="index.js"></script>
+</head>
+<body>
+  <h1>Welcome, <%= user.username %>!</h1>
+  <h2>Medication & Health Dashboard for elderly</h2>
+  
+  <form action="/add-medication" method="post">
+    <input type="hidden" name="userId" value="<%= user.id %>">
+    <label for="medication">Add Medication:</label>
+    <input type="text" id="medication" name="medication" required>
+    <label for="medication">Time:</label>
+    <input type="time" id="myTime" value="00:00:00">
+    <button type="submit">Add Medication</button>
+  </form>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myTime").defaultValue = "18:00";
+    }
+    </script>
+  
+  <h3>Your Medications:</h3>
+  <ul>
+    <% user.medications.forEach(med => { %>
+      <li><%= med %></li>
+    <% }); %>
+  </ul>
+  
+  <h3>Vital Signs:</h3>
+  <p>Heart Rate: <%= user.vitalSigns.heartRate || 'N/A' %> bpm</p>
+  <p>Blood Pressure: <%= user.vitalSigns.bloodPressure || 'N/A' %> mmHg</p>
+  <p>Temperature: <%= user.vitalSigns.temperature || 'N/A' %> °C</p>
+
+  <form action="/update-vitals" method="post">
+    <input type="hidden" name="userId" value="<%= user.id %>">
+    <label for="heartRate">Heart Rate:</label>
+    <input type="text" id="heartRate" name="heartRate" required>
+    <label for="bloodPressure">Blood Pressure:</label>
+    <input type="text" id="bloodPressure" name="bloodPressure" required>
+    <label for="temperature">Temperature:</label>
+    <input type="text" id="temperature" name="temperature" required>
+    <button type="submit">Update Vitals</button>
+  </form>
+  <h4 id="demo"></h3>
+    <div id="app">
+      <h2>Current Time</h2>
+      <div id="current-time"></div>
+   </div>
+ <div class="create-alarm">
+    <div>Set time to take medicine</div>
+       <div class="form-actions">
+         <form>
+            <div class="alarm-inputs">
+              <input
+                type="number"
+                name="hour"
+                placeholder="Enter hours"
+                min="0"
+                max="12"
+                required
+              />
+              <input
+                type="number"
+                name="min"
+                min="0"
+                max="60"
+                placeholder="Enter minutes"
+                required
+              />
+              <input
+                type="number"
+                name="sec"
+                min="0"
+                max="60"
+                placeholder="Enter seconds"
+                required
+              />
+              <select name="zone" required>
+                <option value="" selected disabled>Zone</option>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+            </div>
+            <button>Submit</button>
+         </form>
+       </div>
+    </div>
+ </div>
+    <h4>Emergency Contact Number 24*7 Available</h4>
+    <P>+9123456789</P>
+    <P>+9126367478</P>
+    <h2>Feedback</h2>
+ <div class="mb-4 small">
+Please provide your feedback in the form below
+</div>
+<form name="feedback_form" id="feedback_form" method="post">
+<label>How do you rate your overall experience?</label>
+<div class="mb-3 d-flex flex-row py-1">
+  <div class="form-check mr-3">
+  <input class="form-check-input" type="radio" name="rating" id="rating_bad" value="bad">
+  <label class="form-check-label" for="rating_bad">
+    Bad
+  </label>
+  </div>
+  
+  <div class="form-check mx-3">
+  <input class="form-check-input" type="radio" name="rating" id="rating_good" value="good">
+  <label class="form-check-label" for="rating_good">
+    Good
+  </label>
+  </div>
+  
+  <div class="form-check mx-3">
+  <input class="form-check-input"  type="radio" name="rating" id="rating_excellent" value="excellent">
+  <label class="form-check-label" for="rating_excellent">
+    Excellent!
+  </label>
+  </div>
+</div>
+<div class="mb-4">
+  <label class="form-label"  for="feedback_comments">Comments:</label>
+  <textarea class="form-control" required rows="6" name="comments" id="feedback_comments" ></textarea>
+</div>
+<div class="row">
+  <div class="col">
+    <label class="form-label" for="feedback_name">Your Name:</label>
+    <input type="text" required name="name" class="form-control" id="feedback_name"/>
+  </div>
+  
+  <div class="col mb-4">
+    <label class="form-label" for="feedback_email">Email:</label>
+    <input type="email" name="email" required class="form-control" id="feedback_email"/>
+  </div>
+</div>
+<button type="submit" class="btn btn-success btn-lg" >Post</button>
+</form>
+<div id="app">
+ 
+</body>
+</html>
