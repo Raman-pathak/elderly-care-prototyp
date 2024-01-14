@@ -8,10 +8,10 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Dummy data for demonstration (replace with a database in a real application)
+// Dummy data 
 let users = [];
 
-// Routes
+// Routes path
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -54,10 +54,7 @@ app.post('/update-vitals', (req, res) => {
     res.redirect(`/dashboard/${userId}`);
   } else {
     res.redirect('/');
-  }
-});
-
-// Function to convert time to string value
+  //time function covert data
 const getTimeString = ({ hours, minutes, seconds, zone }) => {
   if (minutes / 10 < 1) {
     minutes = "0" + minutes;
@@ -68,7 +65,7 @@ const getTimeString = ({ hours, minutes, seconds, zone }) => {
   return `${hours}:${minutes}:${seconds} ${zone}`;
 };
 
-
+//server data function 
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
